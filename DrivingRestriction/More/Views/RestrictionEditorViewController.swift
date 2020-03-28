@@ -20,7 +20,6 @@ final class RestrictionEditorViewController: UIViewController, BindableType {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    setUpBarButtons()
     setUpViews()
   }
   
