@@ -29,7 +29,9 @@ class MoreCoodinator: NavigationCoordinator<MoreListRoute> {
       return .push(viewController)
       
     case .editRestrictions:
-      return .none()
+      let vc = RestrictionEditorViewController()
+      vc.bind(to: RestrictionEditorViewModel(router: unownedRouter))
+      return .push(vc)
     }
   }
   

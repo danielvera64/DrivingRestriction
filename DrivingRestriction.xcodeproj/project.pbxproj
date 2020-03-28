@@ -34,6 +34,11 @@
 		11669C6A242EDBC100A7B4CE /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = 11669C69242EDBC100A7B4CE /* Differentiator */; };
 		11669C6C242EDBC100A7B4CE /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 11669C6B242EDBC100A7B4CE /* RxDataSources */; };
 		11669C6F242EE0D200A7B4CE /* Action in Frameworks */ = {isa = PBXBuildFile; productRef = 11669C6E242EE0D200A7B4CE /* Action */; };
+		11669C75242EE33600A7B4CE /* RestrictionEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11669C74242EE33600A7B4CE /* RestrictionEditorViewController.swift */; };
+		11669C77242EE35600A7B4CE /* RestrictionEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11669C76242EE35600A7B4CE /* RestrictionEditorViewModel.swift */; };
+		11669C7A242EF24400A7B4CE /* RestrictionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11669C79242EF24400A7B4CE /* RestrictionTableViewCell.swift */; };
+		11669C7C242EF8A200A7B4CE /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11669C7B242EF8A200A7B4CE /* Int+Extension.swift */; };
+		11669C7E242EFC2D00A7B4CE /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11669C7D242EFC2D00A7B4CE /* UIStackView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +84,11 @@
 		11669C60242ED13700A7B4CE /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		11669C63242EDA4700A7B4CE /* BindableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindableType.swift; sourceTree = "<group>"; };
 		11669C66242EDA8200A7B4CE /* MoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewModel.swift; sourceTree = "<group>"; };
+		11669C74242EE33600A7B4CE /* RestrictionEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestrictionEditorViewController.swift; sourceTree = "<group>"; };
+		11669C76242EE35600A7B4CE /* RestrictionEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestrictionEditorViewModel.swift; sourceTree = "<group>"; };
+		11669C79242EF24400A7B4CE /* RestrictionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestrictionTableViewCell.swift; sourceTree = "<group>"; };
+		11669C7B242EF8A200A7B4CE /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
+		11669C7D242EFC2D00A7B4CE /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +204,7 @@
 				11418057242C4B2B00A39EC3 /* LaunchScreen.storyboard */,
 				113B32CB242D9C8A00E573B1 /* LocalStorage */,
 				1141807F242C4CD200A39EC3 /* Main */,
+				11669C70242EE2ED00A7B4CE /* More */,
 				113B32DF242DBCC600E573B1 /* PreloadDB */,
 			);
 			path = DrivingRestriction;
@@ -233,7 +244,6 @@
 			children = (
 				11418088242C51F900A39EC3 /* HomeCoordinator.swift */,
 				11418086242C4F7200A39EC3 /* MainTabBarCoordinator.swift */,
-				1141808A242C526700A39EC3 /* MoreCoodinator.swift */,
 			);
 			path = Coodinators;
 			sourceTree = "<group>";
@@ -242,7 +252,6 @@
 			isa = PBXGroup;
 			children = (
 				11418082242C4D0A00A39EC3 /* HomeViewController.swift */,
-				1141808C242C529D00A39EC3 /* MoreViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -269,6 +278,8 @@
 			isa = PBXGroup;
 			children = (
 				11669C60242ED13700A7B4CE /* String+Extension.swift */,
+				11669C7B242EF8A200A7B4CE /* Int+Extension.swift */,
+				11669C7D242EFC2D00A7B4CE /* UIStackView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -284,9 +295,53 @@
 		11669C65242EDA6300A7B4CE /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				11669C66242EDA8200A7B4CE /* MoreViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		11669C70242EE2ED00A7B4CE /* More */ = {
+			isa = PBXGroup;
+			children = (
+				11669C71242EE2FB00A7B4CE /* Coodinators */,
+				11669C73242EE30900A7B4CE /* ViewModels */,
+				11669C72242EE30200A7B4CE /* Views */,
+			);
+			path = More;
+			sourceTree = "<group>";
+		};
+		11669C71242EE2FB00A7B4CE /* Coodinators */ = {
+			isa = PBXGroup;
+			children = (
+				1141808A242C526700A39EC3 /* MoreCoodinator.swift */,
+			);
+			path = Coodinators;
+			sourceTree = "<group>";
+		};
+		11669C72242EE30200A7B4CE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				11669C78242EF22600A7B4CE /* Cells */,
+				1141808C242C529D00A39EC3 /* MoreViewController.swift */,
+				11669C74242EE33600A7B4CE /* RestrictionEditorViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		11669C73242EE30900A7B4CE /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				11669C66242EDA8200A7B4CE /* MoreViewModel.swift */,
+				11669C76242EE35600A7B4CE /* RestrictionEditorViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		11669C78242EF22600A7B4CE /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				11669C79242EF24400A7B4CE /* RestrictionTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -444,12 +499,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				1141808D242C529D00A39EC3 /* MoreViewController.swift in Sources */,
+				11669C7C242EF8A200A7B4CE /* Int+Extension.swift in Sources */,
 				11418087242C4F7200A39EC3 /* MainTabBarCoordinator.swift in Sources */,
+				11669C7A242EF24400A7B4CE /* RestrictionTableViewCell.swift in Sources */,
 				1141804D242C4B2600A39EC3 /* AppDelegate.swift in Sources */,
 				113B32D3242DA75300E573B1 /* DataManagerProtocol.swift in Sources */,
+				11669C75242EE33600A7B4CE /* RestrictionEditorViewController.swift in Sources */,
+				11669C7E242EFC2D00A7B4CE /* UIStackView+Extension.swift in Sources */,
 				11418083242C4D0A00A39EC3 /* HomeViewController.swift in Sources */,
 				1141808B242C526700A39EC3 /* MoreCoodinator.swift in Sources */,
 				11418089242C51F900A39EC3 /* HomeCoordinator.swift in Sources */,
+				11669C77242EE35600A7B4CE /* RestrictionEditorViewModel.swift in Sources */,
 				113B32D0242DA32E00E573B1 /* RestrictionSchedule.swift in Sources */,
 				11669C61242ED13700A7B4CE /* String+Extension.swift in Sources */,
 				11669C67242EDA8200A7B4CE /* MoreViewModel.swift in Sources */,
