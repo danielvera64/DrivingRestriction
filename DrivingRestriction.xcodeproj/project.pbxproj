@@ -25,7 +25,6 @@
 		11418090242C54A800A39EC3 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1141808F242C54A800A39EC3 /* RealmSwift */; };
 		11418096242C556D00A39EC3 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 11418095242C556D00A39EC3 /* SnapKit */; };
 		11418099242C566600A39EC3 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = 11418098242C566600A39EC3 /* Quick */; };
-		11669C51242ECF6C00A7B4CE /* DrivingRestriction.realm in Resources */ = {isa = PBXBuildFile; fileRef = 11669C50242ECF6C00A7B4CE /* DrivingRestriction.realm */; };
 		11669C57242ECFE900A7B4CE /* testDB.realm in Resources */ = {isa = PBXBuildFile; fileRef = 11669C56242ECFE900A7B4CE /* testDB.realm */; };
 		11669C5C242ED10100A7B4CE /* localized.strings in Resources */ = {isa = PBXBuildFile; fileRef = 11669C5E242ED10100A7B4CE /* localized.strings */; };
 		11669C61242ED13700A7B4CE /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11669C60242ED13700A7B4CE /* String+Extension.swift */; };
@@ -39,6 +38,8 @@
 		11669C7A242EF24400A7B4CE /* RestrictionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11669C79242EF24400A7B4CE /* RestrictionTableViewCell.swift */; };
 		11669C7C242EF8A200A7B4CE /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11669C7B242EF8A200A7B4CE /* Int+Extension.swift */; };
 		11669C7E242EFC2D00A7B4CE /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11669C7D242EFC2D00A7B4CE /* UIStackView+Extension.swift */; };
+		116D2D7A242FA397006280E4 /* RxRealm in Frameworks */ = {isa = PBXBuildFile; productRef = 116D2D79242FA397006280E4 /* RxRealm */; };
+		116D2D7C242FAE50006280E4 /* DrivingRestriction.realm in Resources */ = {isa = PBXBuildFile; fileRef = 116D2D7B242FAE50006280E4 /* DrivingRestriction.realm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,7 +79,6 @@
 		11418088242C51F900A39EC3 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		1141808A242C526700A39EC3 /* MoreCoodinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreCoodinator.swift; sourceTree = "<group>"; };
 		1141808C242C529D00A39EC3 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
-		11669C50242ECF6C00A7B4CE /* DrivingRestriction.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = DrivingRestriction.realm; sourceTree = "<group>"; };
 		11669C56242ECFE900A7B4CE /* testDB.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = testDB.realm; sourceTree = "<group>"; };
 		11669C5D242ED10100A7B4CE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/localized.strings; sourceTree = "<group>"; };
 		11669C60242ED13700A7B4CE /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
@@ -89,6 +89,7 @@
 		11669C79242EF24400A7B4CE /* RestrictionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestrictionTableViewCell.swift; sourceTree = "<group>"; };
 		11669C7B242EF8A200A7B4CE /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		11669C7D242EFC2D00A7B4CE /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
+		116D2D7B242FAE50006280E4 /* DrivingRestriction.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = DrivingRestriction.realm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +103,7 @@
 				11418090242C54A800A39EC3 /* RealmSwift in Frameworks */,
 				11669C6C242EDBC100A7B4CE /* RxDataSources in Frameworks */,
 				1141807E242C4CBC00A39EC3 /* XCoordinatorRx in Frameworks */,
+				116D2D7A242FA397006280E4 /* RxRealm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,7 +171,7 @@
 		113B32DF242DBCC600E573B1 /* PreloadDB */ = {
 			isa = PBXGroup;
 			children = (
-				11669C50242ECF6C00A7B4CE /* DrivingRestriction.realm */,
+				116D2D7B242FAE50006280E4 /* DrivingRestriction.realm */,
 			);
 			path = PreloadDB;
 			sourceTree = "<group>";
@@ -367,6 +369,7 @@
 				11669C69242EDBC100A7B4CE /* Differentiator */,
 				11669C6B242EDBC100A7B4CE /* RxDataSources */,
 				11669C6E242EE0D200A7B4CE /* Action */,
+				116D2D79242FA397006280E4 /* RxRealm */,
 			);
 			productName = DrivingRestriction;
 			productReference = 11418049242C4B2600A39EC3 /* Restriction.app */;
@@ -452,6 +455,7 @@
 				113B32D8242DB54D00E573B1 /* XCRemoteSwiftPackageReference "Nimble" */,
 				11669C68242EDBC100A7B4CE /* XCRemoteSwiftPackageReference "RxDataSources" */,
 				11669C6D242EE0D200A7B4CE /* XCRemoteSwiftPackageReference "Action" */,
+				116D2D78242FA397006280E4 /* XCRemoteSwiftPackageReference "RxRealm" */,
 			);
 			productRefGroup = 1141804A242C4B2600A39EC3 /* Products */;
 			projectDirPath = "";
@@ -469,8 +473,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				11669C51242ECF6C00A7B4CE /* DrivingRestriction.realm in Resources */,
 				11669C57242ECFE900A7B4CE /* testDB.realm in Resources */,
+				116D2D7C242FAE50006280E4 /* DrivingRestriction.realm in Resources */,
 				11669C5C242ED10100A7B4CE /* localized.strings in Resources */,
 				11418059242C4B2B00A39EC3 /* LaunchScreen.storyboard in Resources */,
 				11418056242C4B2B00A39EC3 /* Assets.xcassets in Resources */,
@@ -903,6 +907,14 @@
 				minimumVersion = 4.0.1;
 			};
 		};
+		116D2D78242FA397006280E4 /* XCRemoteSwiftPackageReference "RxRealm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxRealm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -945,6 +957,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 11669C6D242EE0D200A7B4CE /* XCRemoteSwiftPackageReference "Action" */;
 			productName = Action;
+		};
+		116D2D79242FA397006280E4 /* RxRealm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 116D2D78242FA397006280E4 /* XCRemoteSwiftPackageReference "RxRealm" */;
+			productName = RxRealm;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

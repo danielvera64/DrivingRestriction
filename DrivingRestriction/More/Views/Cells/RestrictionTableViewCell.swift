@@ -33,49 +33,53 @@ class RestrictionTableViewCell: UITableViewCell {
     contentView.backgroundColor = .clear
     
     let containerView = UIView()
-    containerView.backgroundColor = .white
+    containerView.backgroundColor = .lightGray
     containerView.layer.cornerRadius = 10
     containerView.clipsToBounds = true
     contentView.addSubview(containerView)
-    containerView.snp.makeConstraints { $0.edges.equalToSuperview() }
+    containerView.snp.makeConstraints {
+      $0.edges.equalToSuperview().inset(UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
+    }
     
     let lastTitle = UILabel()
-    lastTitle.font = .boldSystemFont(ofSize: 14)
+    lastTitle.font = .boldSystemFont(ofSize: 16)
     lastTitle.numberOfLines = 1
     lastTitle.setContentCompressionResistancePriority(.required, for: .horizontal)
+    lastTitle.setContentHuggingPriority(.required, for: .horizontal)
     lastTitle.text = "\("last_digits_title".localized):"
     
     lastDigistsLabel.font = .systemFont(ofSize: 14)
     lastDigistsLabel.numberOfLines = 0
     lastDigistsLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
     lastDigistsLabel.setContentCompressionResistancePriority(.required, for: .vertical)
-    lastDigistsLabel.setContentHuggingPriority(.required, for: .vertical)
     
     let weekdaysTitle = UILabel()
-    weekdaysTitle.font = .boldSystemFont(ofSize: 14)
+    weekdaysTitle.font = .boldSystemFont(ofSize: 16)
     weekdaysTitle.numberOfLines = 1
     weekdaysTitle.setContentCompressionResistancePriority(.required, for: .horizontal)
+    weekdaysTitle.setContentHuggingPriority(.required, for: .horizontal)
     weekdaysTitle.text = "\("weekdays_title".localized):"
     
     weedaysLabel.font = .systemFont(ofSize: 14)
     weedaysLabel.numberOfLines = 0
     weedaysLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
     weedaysLabel.setContentCompressionResistancePriority(.required, for: .vertical)
-    weedaysLabel.setContentHuggingPriority(.required, for: .vertical)
     
     let scheduleTitle = UILabel()
-    scheduleTitle.font = .boldSystemFont(ofSize: 14)
+    scheduleTitle.font = .boldSystemFont(ofSize: 16)
     scheduleTitle.numberOfLines = 1
     scheduleTitle.setContentCompressionResistancePriority(.required, for: .horizontal)
+    scheduleTitle.setContentHuggingPriority(.required, for: .horizontal)
     scheduleTitle.text = "\("schedule_title".localized):"
     
     hoursStackView.axis = .vertical
     hoursStackView.spacing = 3
     
     let canUseTitle = UILabel()
-    canUseTitle.font = .boldSystemFont(ofSize: 14)
+    canUseTitle.font = .boldSystemFont(ofSize: 16)
     canUseTitle.numberOfLines = 1
     canUseTitle.setContentCompressionResistancePriority(.required, for: .horizontal)
+    canUseTitle.setContentHuggingPriority(.required, for: .horizontal)
     canUseTitle.text = "\("can_use_vehicle_title".localized):"
     
     canUseLabel.numberOfLines = 1
@@ -91,7 +95,7 @@ class RestrictionTableViewCell: UITableViewCell {
     weekStackView.axis = .horizontal
     weekStackView.spacing = 10
     weekStackView.addArrangedSubview(weekdaysTitle)
-    weekStackView.addArrangedSubview(weekdaysTitle)
+    weekStackView.addArrangedSubview(weedaysLabel)
     
     let scheduleStackView = UIStackView()
     scheduleStackView.axis = .horizontal
@@ -114,7 +118,9 @@ class RestrictionTableViewCell: UITableViewCell {
     stackView.addArrangedSubview(canUseStackView)
     
     containerView.addSubview(stackView)
-    stackView.snp.makeConstraints { $0.edges.equalToSuperview() }
+    stackView.snp.makeConstraints {
+      $0.edges.equalToSuperview().inset(UIEdgeInsets(top: 3, left: 5, bottom: 3, right: 5))
+    }
   }
   
   override func prepareForReuse() {
@@ -140,7 +146,7 @@ class RestrictionTableViewCell: UITableViewCell {
       .forEach { [unowned self] label in self.hoursStackView.addArrangedSubview(label) }
     
     let canUse = restrictions.map { $0.canUseVehicle }.reduce(true) { $0 && $1 }
-    canUseLabel.text = canUse ? "✅" : "❌"
+    canUseLabel.text = canUse ? "✅" : "⛔️"
   }
   
   private func getScheduleLabel(schedule: RestrictionSchedule) -> UILabel {
@@ -149,7 +155,6 @@ class RestrictionTableViewCell: UITableViewCell {
     auxLabel.numberOfLines = 1
     auxLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
     auxLabel.setContentCompressionResistancePriority(.required, for: .vertical)
-    auxLabel.setContentHuggingPriority(.required, for: .vertical)
     auxLabel.text = "\(schedule.startHour) - \(schedule.endHour)"
     return auxLabel
   }

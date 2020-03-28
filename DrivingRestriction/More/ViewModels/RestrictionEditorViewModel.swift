@@ -7,17 +7,26 @@
 //
 
 import Foundation
+import RxSwift
+import RxRealm
 import XCoordinator
 
 class RestrictionEditorViewModel {
   
   let router: UnownedRouter<MoreListRoute>
   
+  let currentRestrictions = BehaviorSubject<[RestrictionSchedule]>(value: [])
+  
   private let dataManager = RealmDataManager()
+  private let disposeBag = DisposeBag()
   
   init(router: UnownedRouter<MoreListRoute>) {
     self.router = router
-    let aux1 = dataManager.getSingle(type: RestrictionSchedule.self, query: "")
+    dataManager
+      .getObservable(type: RestrictionSchedule.self)
+      .debug()
+      .bind(to: currentRestrictions)
+      .disposed(by: disposeBag)
   }
   
 }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol DataManagerProtocol {
   associatedtype T
@@ -15,6 +16,7 @@ protocol DataManagerProtocol {
   func getSingle<T>(type: T.Type, query: String) -> T?
   func getArray<T>(type: T.Type, query: String) -> [T]
   func getAll<T>(type: T.Type) -> [T]
+  func getObservable<T>(type: T.Type, query: String) -> Observable<[T]>
   func delete(object: T) throws
   func delete(objects: [T]) throws
   func clearTable(type: T.Type) throws

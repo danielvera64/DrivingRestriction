@@ -9,10 +9,13 @@
 import Foundation
 import UIKit
 import RxSwift
+import RxDataSources
 
 final class RestrictionEditorViewController: UIViewController, BindableType {
   
   var viewModel: RestrictionEditorViewModel!
+  
+  private let disposeBag = DisposeBag()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -42,12 +45,22 @@ final class RestrictionEditorViewController: UIViewController, BindableType {
     let tableView = UITableView()
     tableView.tableFooterView = UIView()
     tableView.rowHeight = UITableView.automaticDimension
-    tableView.separatorStyle = .singleLine
+    tableView.separatorStyle = .none
     tableView.register(RestrictionTableViewCell.self, forCellReuseIdentifier: "cell")
     view.addSubview(tableView)
     tableView.snp.makeConstraints {
       $0.edges.equalTo(view.safeAreaLayoutGuide)
     }
+    
+    viewModel
+      .currentRestrictions
+      .debug()
+      .bind(to: tableView.rx.items(cellIdentifier: "cell", cellType: RestrictionTableViewCell.self))
+      { _, restriction, cell in
+        cell.setUpWith(restrictions: [restriction])
+      }
+      .disposed(by: disposeBag)
+    
   }
   
 }

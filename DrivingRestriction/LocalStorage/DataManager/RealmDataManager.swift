@@ -8,12 +8,14 @@
 
 import Foundation
 import RealmSwift
+import RxSwift
+import RxRealm
 
 class RealmDataManager: DataManagerProtocol {
 
   typealias T = Object
 
-  private var dataSource: Realm!
+  public var dataSource: Realm!
   private let DB_NAME: String
 
   private static let AUX_DB_NAME = "DrivingRestriction"
@@ -92,6 +94,15 @@ class RealmDataManager: DataManagerProtocol {
   func getAll<T>(type: T.Type) -> [T] {
     guard let objType = type as? Object.Type else { return [] }
     return dataSource.objects(objType).compactMap { $0 as? T }
+  }
+  
+  func getObservable<T>(type: T.Type, query: String = "") -> Observable<[T]> {
+    guard let objType = type as? Object.Type else { return Observable.just([]) }
+    var objects = dataSource.objects(objType)
+    if query.count > 0 { objects = objects.filter(query) }
+    return Observable
+      .collection(from: objects)
+      .compactMap { $0.toArray().map { $0 as? T }.filter { $0 != nil } as? [T] }
   }
   
   func delete(object: Object) throws {
