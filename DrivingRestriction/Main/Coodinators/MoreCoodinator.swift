@@ -11,6 +11,7 @@ import XCoordinator
 
 enum MoreListRoute: Route {
   case more
+  case editRestrictions
 }
 
 class MoreCoodinator: NavigationCoordinator<MoreListRoute> {
@@ -21,9 +22,14 @@ class MoreCoodinator: NavigationCoordinator<MoreListRoute> {
   
   override func prepareTransition(for route: MoreListRoute) -> NavigationTransition {
     switch route {
+      
     case .more:
       let viewController = MoreViewController()
-      return .present(viewController)
+      viewController.bind(to: MoreViewModel(router: unownedRouter))
+      return .push(viewController)
+      
+    case .editRestrictions:
+      return .none()
     }
   }
   

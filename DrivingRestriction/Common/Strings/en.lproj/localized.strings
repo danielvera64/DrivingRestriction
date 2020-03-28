@@ -1,0 +1,10 @@
+/* 
+  localized.strings
+  DrivingRestriction
+
+  Created by Daniel Vera on 3/27/20.
+  Copyright © 2020 zakumi. All rights reserved.
+*/
+
+"more_title" = "More";
+"current_driving_restrictions" = "Current driving restrictions";
