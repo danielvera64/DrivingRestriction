@@ -6,6 +6,9 @@
   Copyright © 2020 zakumi. All rights reserved.
 */
 
+"cancel_title" = "Cancel";
+"accept_title" = "Accept";
+
 "more_title" = "More";
 "current_driving_restrictions" = "Current driving restrictions";
 "restriction_title" = "Restriction";
@@ -14,3 +17,5 @@
 "weekdays_title" = "Weekday(s)";
 "schedule_title" = "Schedule";
 "can_use_vehicle_title" = "Can use vehicle";
+
+"delete_all_confirmation" = "You want to delete all restrictions? This action cannot be undone";

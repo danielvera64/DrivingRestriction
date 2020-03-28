@@ -7,11 +7,15 @@
 //
 
 import Foundation
+import UIKit
 import XCoordinator
+
+typealias AlertActionBody = () -> Void
 
 enum MoreListRoute: Route {
   case more
   case editRestrictions
+  case alert(title:String, message:String, onAccept:AlertActionBody, onCancel:AlertActionBody?)
 }
 
 class MoreCoodinator: NavigationCoordinator<MoreListRoute> {
@@ -32,6 +36,18 @@ class MoreCoodinator: NavigationCoordinator<MoreListRoute> {
       let vc = RestrictionEditorViewController()
       vc.bind(to: RestrictionEditorViewModel(router: unownedRouter))
       return .push(vc)
+      
+    case let .alert(title, message, onAccept, onCancel):
+      let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+      alert.addAction(UIAlertAction(title: "accept_title".localized, style: .default) { _ in
+        onAccept()
+      })
+      if let onCancel = onCancel {
+        alert.addAction(UIAlertAction(title: "cancel_title".localized, style: .cancel) { _ in
+          onCancel()
+        })
+      }
+      return .present(alert)
     }
   }
   

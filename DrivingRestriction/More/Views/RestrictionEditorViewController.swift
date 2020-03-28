@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import RxSwift
 import RxDataSources
+import Action
 
 final class RestrictionEditorViewController: UIViewController, BindableType {
   
@@ -35,6 +36,9 @@ final class RestrictionEditorViewController: UIViewController, BindableType {
   
   private func setUpBarButtons() {
     let deleteButton = UIBarButtonItem(image: #imageLiteral(resourceName: "trashIcon"), style: .plain, target: nil, action: nil)
+    deleteButton.rx.tap
+      .bind(to: viewModel.deleteAllAction.inputs)
+      .disposed(by: disposeBag)
     
     let addButton = UIBarButtonItem(image: #imageLiteral(resourceName: "addIcon"), style: .plain, target: nil, action: nil)
     
