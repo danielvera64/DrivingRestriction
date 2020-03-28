@@ -11,22 +11,18 @@ import RealmSwift
 
 class RestrictionSchedule: Object {
   
-  @objc dynamic var startHour: Int = -1
-  @objc dynamic var startMinute: Int = -1
-  @objc dynamic var endHour: Int = -1
-  @objc dynamic var endMinute: Int = -1
+  @objc dynamic var startTime: Date = Date()
+  @objc dynamic var endTime: Date = Date()
   @objc dynamic var lastDigit: String = ""
   @objc dynamic var weekday: Int = -1
   @objc dynamic var canUseVehicle: Bool = false
   
-  convenience init(startHour: Int, startMinute: Int, endHour: Int,
-                   endMinute: Int, lastDigit: String, weekday: Int, canUseVehicle: Bool)
+  convenience init(startTime: Date, endTime: Date, lastDigit: String,
+                   weekday: Int, canUseVehicle: Bool)
   {
     self.init()
-    self.startHour = startHour
-    self.startMinute = startMinute
-    self.endHour = endHour
-    self.endMinute = endMinute
+    self.startTime = startTime
+    self.endTime = endTime
     self.lastDigit = lastDigit
     self.weekday = weekday
     self.canUseVehicle = canUseVehicle

@@ -13,7 +13,7 @@ import SnapKit
 class RestrictionTableViewCell: UITableViewCell {
   
   private let lastDigistsLabel = UILabel()
-  private let weedaysLabel = UILabel()
+  private let weekdaysLabel = UILabel()
   private let hoursStackView = UIStackView()
   private let canUseLabel = UILabel()
   
@@ -60,10 +60,10 @@ class RestrictionTableViewCell: UITableViewCell {
     weekdaysTitle.setContentHuggingPriority(.required, for: .horizontal)
     weekdaysTitle.text = "\("weekdays_title".localized):"
     
-    weedaysLabel.font = .systemFont(ofSize: 14)
-    weedaysLabel.numberOfLines = 0
-    weedaysLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
-    weedaysLabel.setContentCompressionResistancePriority(.required, for: .vertical)
+    weekdaysLabel.font = .systemFont(ofSize: 14)
+    weekdaysLabel.numberOfLines = 0
+    weekdaysLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
+    weekdaysLabel.setContentCompressionResistancePriority(.required, for: .vertical)
     
     let scheduleTitle = UILabel()
     scheduleTitle.font = .boldSystemFont(ofSize: 16)
@@ -95,7 +95,7 @@ class RestrictionTableViewCell: UITableViewCell {
     weekStackView.axis = .horizontal
     weekStackView.spacing = 10
     weekStackView.addArrangedSubview(weekdaysTitle)
-    weekStackView.addArrangedSubview(weedaysLabel)
+    weekStackView.addArrangedSubview(weekdaysLabel)
     
     let scheduleStackView = UIStackView()
     scheduleStackView.axis = .horizontal
@@ -125,7 +125,7 @@ class RestrictionTableViewCell: UITableViewCell {
   
   override func prepareForReuse() {
     lastDigistsLabel.text = ""
-    weedaysLabel.text = ""
+    weekdaysLabel.text = ""
     hoursStackView.safelyRemoveArrangedSubviews()
     canUseLabel.text = ""
   }
@@ -135,13 +135,13 @@ class RestrictionTableViewCell: UITableViewCell {
       .map { $0.lastDigit }
       .joined(separator: " - ")
     
-    weedaysLabel.text = restrictions
+    let weekdaysSet = Set(restrictions
       .sorted(by: { $0.weekday < $1.weekday })
-      .map { $0.weekday.weekdayName }
-      .joined(separator: " - ")
+      .map { $0.weekday.weekdayName })
+    weekdaysLabel.text = Array(weekdaysSet).joined(separator: " - ")
     
     restrictions
-      .sorted(by: { $0.startHour < $1.startHour })
+      .sorted(by: { $0.startTime < $1.startTime })
       .map { [unowned self] schedule in return self.getScheduleLabel(schedule: schedule) }
       .forEach { [unowned self] label in self.hoursStackView.addArrangedSubview(label) }
     
@@ -155,7 +155,7 @@ class RestrictionTableViewCell: UITableViewCell {
     auxLabel.numberOfLines = 1
     auxLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
     auxLabel.setContentCompressionResistancePriority(.required, for: .vertical)
-    auxLabel.text = "\(schedule.startHour) - \(schedule.endHour)"
+    auxLabel.text = "\(schedule.startTime.toTime()) - \(schedule.endTime.toTime())"
     return auxLabel
   }
   

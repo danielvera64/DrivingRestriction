@@ -15,7 +15,7 @@ class RestrictionEditorViewModel {
   
   let router: UnownedRouter<MoreListRoute>
   
-  let currentRestrictions = BehaviorSubject<[RestrictionSchedule]>(value: [])
+  let currentRestrictions = BehaviorSubject<[[RestrictionSchedule]]>(value: [])
   
   private let dataManager = RealmDataManager()
   private let disposeBag = DisposeBag()
@@ -24,7 +24,7 @@ class RestrictionEditorViewModel {
     self.router = router
     dataManager
       .getObservable(type: RestrictionSchedule.self)
-      .debug()
+      .map { Dictionary(grouping: $0) { $0.weekday }.map { $0.value } }
       .bind(to: currentRestrictions)
       .disposed(by: disposeBag)
   }

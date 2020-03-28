@@ -31,8 +31,7 @@ class RealmDataManagerTests: QuickSpec {
       }
       
       it("insert a Restriction Schedule") {
-        let restriction = RestrictionSchedule(startHour: 7, startMinute: 30, endHour: 19,
-                                              endMinute: 15, lastDigit: "TEST2", weekday: 4, canUseVehicle: false)
+        let restriction = RestrictionSchedule(startTime: Date(), endTime: Date(), lastDigit: "TEST2", weekday: 4, canUseVehicle: false)
         try? dataManager.add(object: restriction, update: false)
         
         let objects = dataManager.getAll(type: RestrictionSchedule.self)
@@ -40,8 +39,7 @@ class RealmDataManagerTests: QuickSpec {
       }
       
       it("delete a Restriction Schedule") {
-        let restriction = RestrictionSchedule(startHour: 7, startMinute: 30, endHour: 19,
-                                              endMinute: 15, lastDigit: "TEST3", weekday: 4, canUseVehicle: true)
+        let restriction = RestrictionSchedule(startTime: Date(), endTime: Date(), lastDigit: "TEST3", weekday: 4, canUseVehicle: true)
         try? dataManager.add(object: restriction, update: false)
         
         var toBeDeleted = dataManager.getSingle(type: RestrictionSchedule.self, query: "lastDigit = 'TEST3'")

@@ -54,10 +54,9 @@ final class RestrictionEditorViewController: UIViewController, BindableType {
     
     viewModel
       .currentRestrictions
-      .debug()
       .bind(to: tableView.rx.items(cellIdentifier: "cell", cellType: RestrictionTableViewCell.self))
-      { _, restriction, cell in
-        cell.setUpWith(restrictions: [restriction])
+      { _, restrictions, cell in
+        cell.setUpWith(restrictions: restrictions)
       }
       .disposed(by: disposeBag)
     
