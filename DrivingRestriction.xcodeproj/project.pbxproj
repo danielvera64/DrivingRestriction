@@ -12,8 +12,6 @@
 		113B32D5242DA82900E573B1 /* RealmDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113B32D4242DA82900E573B1 /* RealmDataManager.swift */; };
 		113B32D7242DB4E100E573B1 /* RealmDataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113B32D6242DB4E100E573B1 /* RealmDataManagerTests.swift */; };
 		113B32DA242DB54D00E573B1 /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 113B32D9242DB54D00E573B1 /* Nimble */; };
-		113B32DD242DB84000E573B1 /* testDB.realm in Resources */ = {isa = PBXBuildFile; fileRef = 113B32DC242DB84000E573B1 /* testDB.realm */; };
-		113B32E1242DBD2500E573B1 /* DrivingRestriction.realm in Resources */ = {isa = PBXBuildFile; fileRef = 113B32E0242DBD2500E573B1 /* DrivingRestriction.realm */; };
 		1141804D242C4B2600A39EC3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1141804C242C4B2600A39EC3 /* AppDelegate.swift */; };
 		11418056242C4B2B00A39EC3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11418055242C4B2B00A39EC3 /* Assets.xcassets */; };
 		11418059242C4B2B00A39EC3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11418057242C4B2B00A39EC3 /* LaunchScreen.storyboard */; };
@@ -27,6 +25,8 @@
 		11418090242C54A800A39EC3 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1141808F242C54A800A39EC3 /* RealmSwift */; };
 		11418096242C556D00A39EC3 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 11418095242C556D00A39EC3 /* SnapKit */; };
 		11418099242C566600A39EC3 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = 11418098242C566600A39EC3 /* Quick */; };
+		11669C51242ECF6C00A7B4CE /* DrivingRestriction.realm in Resources */ = {isa = PBXBuildFile; fileRef = 11669C50242ECF6C00A7B4CE /* DrivingRestriction.realm */; };
+		11669C57242ECFE900A7B4CE /* testDB.realm in Resources */ = {isa = PBXBuildFile; fileRef = 11669C56242ECFE900A7B4CE /* testDB.realm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,8 +51,6 @@
 		113B32D2242DA75300E573B1 /* DataManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerProtocol.swift; sourceTree = "<group>"; };
 		113B32D4242DA82900E573B1 /* RealmDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDataManager.swift; sourceTree = "<group>"; };
 		113B32D6242DB4E100E573B1 /* RealmDataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDataManagerTests.swift; sourceTree = "<group>"; };
-		113B32DC242DB84000E573B1 /* testDB.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = testDB.realm; sourceTree = "<group>"; };
-		113B32E0242DBD2500E573B1 /* DrivingRestriction.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = DrivingRestriction.realm; sourceTree = "<group>"; };
 		11418049242C4B2600A39EC3 /* DrivingRestriction.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrivingRestriction.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1141804C242C4B2600A39EC3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		11418055242C4B2B00A39EC3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -68,6 +66,8 @@
 		11418088242C51F900A39EC3 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		1141808A242C526700A39EC3 /* MoreCoodinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreCoodinator.swift; sourceTree = "<group>"; };
 		1141808C242C529D00A39EC3 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
+		11669C50242ECF6C00A7B4CE /* DrivingRestriction.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = DrivingRestriction.realm; sourceTree = "<group>"; };
+		11669C56242ECFE900A7B4CE /* testDB.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = testDB.realm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,7 +129,7 @@
 		113B32DB242DB82B00E573B1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				113B32DC242DB84000E573B1 /* testDB.realm */,
+				11669C56242ECFE900A7B4CE /* testDB.realm */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -145,7 +145,7 @@
 		113B32DF242DBCC600E573B1 /* PreloadDB */ = {
 			isa = PBXGroup;
 			children = (
-				113B32E0242DBD2500E573B1 /* DrivingRestriction.realm */,
+				11669C50242ECF6C00A7B4CE /* DrivingRestriction.realm */,
 			);
 			path = PreloadDB;
 			sourceTree = "<group>";
@@ -351,8 +351,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				113B32E1242DBD2500E573B1 /* DrivingRestriction.realm in Resources */,
-				113B32DD242DB84000E573B1 /* testDB.realm in Resources */,
+				11669C51242ECF6C00A7B4CE /* DrivingRestriction.realm in Resources */,
+				11669C57242ECFE900A7B4CE /* testDB.realm in Resources */,
 				11418059242C4B2B00A39EC3 /* LaunchScreen.storyboard in Resources */,
 				11418056242C4B2B00A39EC3 /* Assets.xcassets in Resources */,
 			);

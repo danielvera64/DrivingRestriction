@@ -17,8 +17,11 @@ class RestrictionSchedule: Object {
   @objc dynamic var endMinute: Int = -1
   @objc dynamic var lastDigit: String = ""
   @objc dynamic var weekday: Int = -1
+  @objc dynamic var canUseVehicle: Bool = false
   
-  convenience init(startHour: Int, startMinute: Int, endHour: Int, endMinute: Int, lastDigit: String, weekday: Int) {
+  convenience init(startHour: Int, startMinute: Int, endHour: Int,
+                   endMinute: Int, lastDigit: String, weekday: Int, canUseVehicle: Bool)
+  {
     self.init()
     self.startHour = startHour
     self.startMinute = startMinute
@@ -26,6 +29,7 @@ class RestrictionSchedule: Object {
     self.endMinute = endMinute
     self.lastDigit = lastDigit
     self.weekday = weekday
+    self.canUseVehicle = canUseVehicle
   }
   
 }
