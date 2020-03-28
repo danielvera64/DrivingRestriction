@@ -15,6 +15,7 @@ typealias AlertActionBody = () -> Void
 enum MoreListRoute: Route {
   case more
   case editRestrictions
+  case newRestriction
   case alert(title:String, message:String, onAccept:AlertActionBody, onCancel:AlertActionBody?)
 }
 
@@ -35,6 +36,11 @@ class MoreCoodinator: NavigationCoordinator<MoreListRoute> {
     case .editRestrictions:
       let vc = RestrictionEditorViewController()
       vc.bind(to: RestrictionEditorViewModel(router: unownedRouter))
+      return .push(vc)
+      
+    case .newRestriction:
+      let vc = NewRestrictionViewController()
+      vc.bind(to: NewRestrictionViewModel(router: unownedRouter))
       return .push(vc)
       
     case let .alert(title, message, onAccept, onCancel):

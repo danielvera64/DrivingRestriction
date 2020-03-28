@@ -38,9 +38,14 @@
 		11669C7C242EF8A200A7B4CE /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11669C7B242EF8A200A7B4CE /* Int+Extension.swift */; };
 		11669C7E242EFC2D00A7B4CE /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11669C7D242EFC2D00A7B4CE /* UIStackView+Extension.swift */; };
 		116D2D7A242FA397006280E4 /* RxRealm in Frameworks */ = {isa = PBXBuildFile; productRef = 116D2D79242FA397006280E4 /* RxRealm */; };
-		116D2D7E242FBAFB006280E4 /* DrivingRestriction.realm in Resources */ = {isa = PBXBuildFile; fileRef = 116D2D7D242FBAFB006280E4 /* DrivingRestriction.realm */; };
 		116D2D80242FBB06006280E4 /* testDB.realm in Resources */ = {isa = PBXBuildFile; fileRef = 116D2D7F242FBB06006280E4 /* testDB.realm */; };
 		116D2D82242FBBE5006280E4 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116D2D81242FBBE5006280E4 /* Date+Extension.swift */; };
+		116D2D84242FC4B0006280E4 /* NewRestrictionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116D2D83242FC4B0006280E4 /* NewRestrictionViewController.swift */; };
+		116D2D86242FC510006280E4 /* NewRestrictionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116D2D85242FC510006280E4 /* NewRestrictionViewModel.swift */; };
+		116D2D89242FCB98006280E4 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116D2D88242FCB98006280E4 /* CustomTextField.swift */; };
+		116D2D8C242FD1C7006280E4 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116D2D8B242FD1C7006280E4 /* Enums.swift */; };
+		116D2D8E242FD2D5006280E4 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116D2D8D242FD2D5006280E4 /* TextField.swift */; };
+		116D2D90242FEDAA006280E4 /* DrivingRestriction.realm in Resources */ = {isa = PBXBuildFile; fileRef = 116D2D8F242FEDAA006280E4 /* DrivingRestriction.realm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,9 +94,14 @@
 		11669C79242EF24400A7B4CE /* RestrictionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestrictionTableViewCell.swift; sourceTree = "<group>"; };
 		11669C7B242EF8A200A7B4CE /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		11669C7D242EFC2D00A7B4CE /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
-		116D2D7D242FBAFB006280E4 /* DrivingRestriction.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = DrivingRestriction.realm; sourceTree = "<group>"; };
 		116D2D7F242FBB06006280E4 /* testDB.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = testDB.realm; sourceTree = "<group>"; };
 		116D2D81242FBBE5006280E4 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		116D2D83242FC4B0006280E4 /* NewRestrictionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRestrictionViewController.swift; sourceTree = "<group>"; };
+		116D2D85242FC510006280E4 /* NewRestrictionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRestrictionViewModel.swift; sourceTree = "<group>"; };
+		116D2D88242FCB98006280E4 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		116D2D8B242FD1C7006280E4 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		116D2D8D242FD2D5006280E4 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		116D2D8F242FEDAA006280E4 /* DrivingRestriction.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = DrivingRestriction.realm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,7 +183,7 @@
 		113B32DF242DBCC600E573B1 /* PreloadDB */ = {
 			isa = PBXGroup;
 			children = (
-				116D2D7D242FBAFB006280E4 /* DrivingRestriction.realm */,
+				116D2D8F242FEDAA006280E4 /* DrivingRestriction.realm */,
 			);
 			path = PreloadDB;
 			sourceTree = "<group>";
@@ -263,9 +273,10 @@
 		11669C58242ED09400A7B4CE /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				11669C62242EDA2C00A7B4CE /* Protocols */,
 				11669C5F242ED11A00A7B4CE /* Extensions */,
+				11669C62242EDA2C00A7B4CE /* Protocols */,
 				11669C59242ED0A300A7B4CE /* Strings */,
+				116D2D8A242FD1B5006280E4 /* Utility */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -326,7 +337,9 @@
 			isa = PBXGroup;
 			children = (
 				11669C78242EF22600A7B4CE /* Cells */,
+				116D2D87242FCB7B006280E4 /* Custom */,
 				1141808C242C529D00A39EC3 /* MoreViewController.swift */,
+				116D2D83242FC4B0006280E4 /* NewRestrictionViewController.swift */,
 				11669C74242EE33600A7B4CE /* RestrictionEditorViewController.swift */,
 			);
 			path = Views;
@@ -336,6 +349,7 @@
 			isa = PBXGroup;
 			children = (
 				11669C66242EDA8200A7B4CE /* MoreViewModel.swift */,
+				116D2D85242FC510006280E4 /* NewRestrictionViewModel.swift */,
 				11669C76242EE35600A7B4CE /* RestrictionEditorViewModel.swift */,
 			);
 			path = ViewModels;
@@ -347,6 +361,23 @@
 				11669C79242EF24400A7B4CE /* RestrictionTableViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		116D2D87242FCB7B006280E4 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				116D2D88242FCB98006280E4 /* CustomTextField.swift */,
+				116D2D8D242FD2D5006280E4 /* TextField.swift */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
+		116D2D8A242FD1B5006280E4 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				116D2D8B242FD1C7006280E4 /* Enums.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -476,8 +507,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				116D2D7E242FBAFB006280E4 /* DrivingRestriction.realm in Resources */,
 				11669C5C242ED10100A7B4CE /* localized.strings in Resources */,
+				116D2D90242FEDAA006280E4 /* DrivingRestriction.realm in Resources */,
 				11418059242C4B2B00A39EC3 /* LaunchScreen.storyboard in Resources */,
 				116D2D80242FBB06006280E4 /* testDB.realm in Resources */,
 				11418056242C4B2B00A39EC3 /* Assets.xcassets in Resources */,
@@ -505,18 +536,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				116D2D84242FC4B0006280E4 /* NewRestrictionViewController.swift in Sources */,
 				1141808D242C529D00A39EC3 /* MoreViewController.swift in Sources */,
+				116D2D8E242FD2D5006280E4 /* TextField.swift in Sources */,
 				11669C7C242EF8A200A7B4CE /* Int+Extension.swift in Sources */,
 				11418087242C4F7200A39EC3 /* MainTabBarCoordinator.swift in Sources */,
+				116D2D86242FC510006280E4 /* NewRestrictionViewModel.swift in Sources */,
 				11669C7A242EF24400A7B4CE /* RestrictionTableViewCell.swift in Sources */,
 				1141804D242C4B2600A39EC3 /* AppDelegate.swift in Sources */,
 				113B32D3242DA75300E573B1 /* DataManagerProtocol.swift in Sources */,
 				11669C75242EE33600A7B4CE /* RestrictionEditorViewController.swift in Sources */,
 				11669C7E242EFC2D00A7B4CE /* UIStackView+Extension.swift in Sources */,
+				116D2D8C242FD1C7006280E4 /* Enums.swift in Sources */,
 				11418083242C4D0A00A39EC3 /* HomeViewController.swift in Sources */,
 				1141808B242C526700A39EC3 /* MoreCoodinator.swift in Sources */,
 				11418089242C51F900A39EC3 /* HomeCoordinator.swift in Sources */,
 				11669C77242EE35600A7B4CE /* RestrictionEditorViewModel.swift in Sources */,
+				116D2D89242FCB98006280E4 /* CustomTextField.swift in Sources */,
 				113B32D0242DA32E00E573B1 /* RestrictionSchedule.swift in Sources */,
 				11669C61242ED13700A7B4CE /* String+Extension.swift in Sources */,
 				11669C67242EDA8200A7B4CE /* MoreViewModel.swift in Sources */,

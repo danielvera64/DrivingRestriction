@@ -41,6 +41,9 @@ final class RestrictionEditorViewController: UIViewController, BindableType {
       .disposed(by: disposeBag)
     
     let addButton = UIBarButtonItem(image: #imageLiteral(resourceName: "addIcon"), style: .plain, target: nil, action: nil)
+    addButton.rx.tap
+      .bind(to: viewModel.addNewAction.inputs)
+      .disposed(by: disposeBag)
     
     navigationItem.rightBarButtonItems = [deleteButton, addButton]
   }

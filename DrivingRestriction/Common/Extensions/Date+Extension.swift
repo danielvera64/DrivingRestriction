@@ -16,4 +16,9 @@ extension Date {
     return dateFormater.string(from: self)
   }
   
+  static func getWeekDays() -> [String] {
+    let calendar = Calendar.current
+    return calendar.weekdaySymbols
+  }
+  
 }

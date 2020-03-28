@@ -19,3 +19,8 @@
 "can_use_vehicle_title" = "Can use vehicle";
 
 "delete_all_confirmation" = "You want to delete all restrictions? This action cannot be undone";
+
+"new_restriction_title" = "New Restriction";
+"weekday_title" = "Weekday";
+"pick_weekday_title" = "Select a weekday";
+"add_schedule" = "Add Schedule";

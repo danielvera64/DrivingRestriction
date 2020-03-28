@@ -131,8 +131,8 @@ class RestrictionTableViewCell: UITableViewCell {
   }
   
   func setUpWith(restrictions: [RestrictionSchedule]) {
-    lastDigistsLabel.text = restrictions
-      .map { $0.lastDigit }
+    lastDigistsLabel.text = Array(Set(restrictions.map { $0.lastDigit }))
+      .sorted(by: { $0 < $1 })
       .joined(separator: " - ")
     
     let weekdaysSet = Set(restrictions
@@ -140,8 +140,9 @@ class RestrictionTableViewCell: UITableViewCell {
       .map { $0.weekday.weekdayName })
     weekdaysLabel.text = Array(weekdaysSet).joined(separator: " - ")
     
-    restrictions
-      .sorted(by: { $0.startTime < $1.startTime })
+    Array(Set(restrictions
+      .map { "\($0.startTime.toTime()) - \($0.endTime.toTime())" }))
+      .sorted(by: { $0 < $1 })
       .map { [unowned self] schedule in return self.getScheduleLabel(schedule: schedule) }
       .forEach { [unowned self] label in self.hoursStackView.addArrangedSubview(label) }
     
@@ -149,13 +150,13 @@ class RestrictionTableViewCell: UITableViewCell {
     canUseLabel.text = canUse ? "✅" : "⛔️"
   }
   
-  private func getScheduleLabel(schedule: RestrictionSchedule) -> UILabel {
+  private func getScheduleLabel(schedule: String) -> UILabel {
     let auxLabel = UILabel()
     auxLabel.font = .systemFont(ofSize: 14)
     auxLabel.numberOfLines = 1
     auxLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
     auxLabel.setContentCompressionResistancePriority(.required, for: .vertical)
-    auxLabel.text = "\(schedule.startTime.toTime()) - \(schedule.endTime.toTime())"
+    auxLabel.text = schedule
     return auxLabel
   }
   

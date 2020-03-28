@@ -19,6 +19,10 @@ class RestrictionEditorViewModel {
   
   let currentRestrictions = BehaviorSubject<[[RestrictionSchedule]]>(value: [])
   
+  lazy var addNewAction = CocoaAction { [unowned self] _ in
+    return self.router.rx.trigger(.newRestriction)
+  }
+  
   lazy var deleteAllAction = CocoaAction { [unowned self] _ in
     return self.router.rx.trigger(.alert(title: "".localized,
                                          message: "delete_all_confirmation".localized,
@@ -34,6 +38,7 @@ class RestrictionEditorViewModel {
     dataManager
       .getObservable(type: RestrictionSchedule.self)
       .map { Dictionary(grouping: $0) { $0.weekday }.map { $0.value } }
+      .map { $0.sorted(by: { ($0.first?.weekday ?? 0) < ($1.first?.weekday ?? 0) })}
       .bind(to: currentRestrictions)
       .disposed(by: disposeBag)
   }

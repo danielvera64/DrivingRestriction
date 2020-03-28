@@ -14,4 +14,10 @@ extension String {
     return NSLocalizedString(self, tableName: "localized", bundle: Bundle.main, value: "", comment: "")
   }
   
+  var containsNumbers: Bool {
+    let numberRegEx  = ".*[0-9]+.*"
+    let testCase     = NSPredicate(format:"SELF MATCHES %@", numberRegEx)
+    return testCase.evaluate(with: self)
+  }
+  
 }
