@@ -11,6 +11,7 @@ import XCoordinator
 
 enum HomeListRoute: Route {
   case home
+  case alert(title:String, message:String, onAccept:AlertActionBody, onCancel:AlertActionBody?)
 }
 
 class HomeCoordinator: NavigationCoordinator<HomeListRoute> {
@@ -21,9 +22,14 @@ class HomeCoordinator: NavigationCoordinator<HomeListRoute> {
   
   override func prepareTransition(for route: HomeListRoute) -> NavigationTransition {
     switch route {
+      
     case .home:
       let viewController = HomeViewController()
-      return .present(viewController)
+      viewController.bind(to: HomeViewModel(router: unownedRouter))
+      return .push(viewController)
+    
+    case .alert(let title, let message, let onAccept, let onCancel):
+      return .present(getAlert(title: title, message: message, onAccept: onAccept, onCancel: onCancel))
     }
   }
   

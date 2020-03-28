@@ -24,3 +24,9 @@
 "weekday_title" = "Weekday";
 "pick_weekday_title" = "Select a weekday";
 "add_schedule" = "Add Schedule";
+
+"put_plate_number_title" = "Put your plate number to check if has driving restriction";
+"plate_number" = "Plate number";
+"check_plate_number" = "Check Plate Number";
+"missing_plate_number" = "You has to put your plate number in order to check the restrictions";
+"invalid_plate_number" = "Invalid plate number. The last digit must be a number";

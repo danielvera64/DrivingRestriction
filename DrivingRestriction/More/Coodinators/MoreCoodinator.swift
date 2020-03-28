@@ -44,16 +44,7 @@ class MoreCoodinator: NavigationCoordinator<MoreListRoute> {
       return .push(vc)
       
     case let .alert(title, message, onAccept, onCancel):
-      let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-      alert.addAction(UIAlertAction(title: "accept_title".localized, style: .default) { _ in
-        onAccept()
-      })
-      if let onCancel = onCancel {
-        alert.addAction(UIAlertAction(title: "cancel_title".localized, style: .cancel) { _ in
-          onCancel()
-        })
-      }
-      return .present(alert)
+      return .present(getAlert(title: title, message: message, onAccept: onAccept, onCancel: onCancel))
     }
   }
   

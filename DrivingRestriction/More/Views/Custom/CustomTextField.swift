@@ -14,10 +14,14 @@ import RxSwift
 class CustomTextField: UIView {
   
   private let textField = TextField()
+  
   private var currentType: TextFieldType = .lastDigit
   private var filterEditActions: [ResponderStandardEditActions: Bool]?
+  private lazy var plateNumberCharacterSet = CharacterSet.letters.union(CharacterSet.decimalDigits)
+  
   private let disposeBag = DisposeBag()
   
+  let currentText = PublishSubject<String?>()
   let currentDigitsSubject = BehaviorSubject<[Int]>(value: [])
   
   init(title: String,
@@ -71,7 +75,7 @@ class CustomTextField: UIView {
     switch type {
     case .lastDigit:
       return .numberPad
-    case .weekdays:
+    case .weekdays, .plateNumber:
       return .default
     }
   }
@@ -102,6 +106,10 @@ class CustomTextField: UIView {
   }
   
   private func bindTextField() {
+    textField.rx.text
+      .bind(to: currentText)
+      .disposed(by: disposeBag)
+    
     if currentType == .lastDigit {
       currentDigitsSubject
         .map { digits in digits.sorted(by: { $0 < $1 }).map { "\($0)" }.joined(separator: ", ") }
@@ -142,6 +150,10 @@ extension CustomTextField: UITextFieldDelegate {
       digits.append(digit)
       currentDigitsSubject.onNext(Array(Set(digits)))
       return false
+      
+    case .plateNumber:
+      if string.count == 0, range.length > 0 { return true } //delete pressed
+      return string.count == string.components(separatedBy: plateNumberCharacterSet.inverted).count
       
     case .weekdays:
       return string.count > 1

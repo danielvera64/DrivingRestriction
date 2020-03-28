@@ -34,6 +34,8 @@ final class MoreViewController: UIViewController, BindableType {
   func bindViewModel() {}
   
   private func setUpViews() {
+    view.backgroundColor = .white
+    
     let tableView = UITableView()
     tableView.tableFooterView = UIView()
     tableView.rowHeight = 60

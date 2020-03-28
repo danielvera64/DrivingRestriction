@@ -11,6 +11,7 @@ import UIKit
 
 enum TextFieldType {
   case lastDigit
+  case plateNumber
   case weekdays
 }
 

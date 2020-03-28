@@ -20,4 +20,9 @@ extension String {
     return testCase.evaluate(with: self)
   }
   
+  var lastDigit: Int? {
+    guard let digit = self.last else { return nil }
+    return Int(String(digit))
+  }
+  
 }

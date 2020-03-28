@@ -49,6 +49,8 @@ final class RestrictionEditorViewController: UIViewController, BindableType {
   }
   
   private func setUpViews() {
+    view.backgroundColor = .white
+    
     let tableView = UITableView()
     tableView.tableFooterView = UIView()
     tableView.rowHeight = UITableView.automaticDimension
