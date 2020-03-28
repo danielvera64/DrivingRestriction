@@ -30,3 +30,6 @@
 "check_plate_number" = "Check Plate Number";
 "missing_plate_number" = "You has to put your plate number in order to check the restrictions";
 "invalid_plate_number" = "Invalid plate number. The last digit must be a number";
+
+"you_can_drive" = "✅ You can drive in the date selected!!";
+"you_can_not_drive" = "⛔️ You can not drive in the date selected!!";
