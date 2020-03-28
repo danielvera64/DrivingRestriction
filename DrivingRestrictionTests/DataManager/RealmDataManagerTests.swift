@@ -11,7 +11,7 @@ import Quick
 import Nimble
 import RealmSwift
 
-@testable import DrivingRestriction
+@testable import Restriction
 class RealmDataManagerTests: QuickSpec {
   override func spec() {
     
@@ -25,7 +25,7 @@ class RealmDataManagerTests: QuickSpec {
     
     describe("the RealmDataManager") {
       it("preloads database") {
-        let restriction = dataManager.dataSource.objects(RestrictionSchedule.self).first
+        let restriction = dataManager.getAll(type: RestrictionSchedule.self).first
         expect(restriction).toEventuallyNot(beNil())
         expect(restriction?.lastDigit).to(equal("TEST"))
       }
@@ -35,7 +35,7 @@ class RealmDataManagerTests: QuickSpec {
                                               endMinute: 15, lastDigit: "TEST2", weekday: 4, canUseVehicle: false)
         try? dataManager.add(object: restriction, update: false)
         
-        let objects = dataManager.dataSource.objects(RestrictionSchedule.self)
+        let objects = dataManager.getAll(type: RestrictionSchedule.self)
         expect(objects.count).to(equal(2))
       }
       
@@ -44,12 +44,12 @@ class RealmDataManagerTests: QuickSpec {
                                               endMinute: 15, lastDigit: "TEST3", weekday: 4, canUseVehicle: true)
         try? dataManager.add(object: restriction, update: false)
         
-        var toBeDeleted = dataManager.dataSource.objects(RestrictionSchedule.self).filter("lastDigit = 'TEST3'").first
+        var toBeDeleted = dataManager.getSingle(type: RestrictionSchedule.self, query: "lastDigit = 'TEST3'")
         expect(toBeDeleted).toNot(beNil())
         
         try? dataManager.delete(object: toBeDeleted!)
         
-        toBeDeleted = dataManager.dataSource.objects(RestrictionSchedule.self).filter("lastDigit = 'TEST3'").first
+        toBeDeleted = dataManager.getSingle(type: RestrictionSchedule.self, query: "lastDigit = 'TEST3'")
         expect(toBeDeleted).to(beNil())
       }
     }

@@ -13,8 +13,11 @@ class RestrictionEditorViewModel {
   
   let router: UnownedRouter<MoreListRoute>
   
+  private let dataManager = RealmDataManager()
+  
   init(router: UnownedRouter<MoreListRoute>) {
     self.router = router
+    let aux1 = dataManager.getSingle(type: RestrictionSchedule.self, query: "")
   }
   
 }

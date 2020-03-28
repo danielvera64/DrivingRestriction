@@ -13,8 +13,8 @@ class RealmDataManager: DataManagerProtocol {
 
   typealias T = Object
 
-  var dataSource: Realm!
-  let DB_NAME: String
+  private var dataSource: Realm!
+  private let DB_NAME: String
 
   private static let AUX_DB_NAME = "DrivingRestriction"
   
@@ -79,6 +79,21 @@ class RealmDataManager: DataManagerProtocol {
     }
   }
 
+  func getSingle<T>(type: T.Type, query: String) -> T? {
+    guard let objType = type as? Object.Type, query.count > 0 else { return nil }
+    return dataSource.objects(objType).filter(query).first as? T
+  }
+  
+  func getArray<T>(type: T.Type, query: String) -> [T] {
+    guard let objType = type as? Object.Type, query.count > 0 else { return [] }
+    return dataSource.objects(objType).filter(query).compactMap { $0 as? T }
+  }
+  
+  func getAll<T>(type: T.Type) -> [T] {
+    guard let objType = type as? Object.Type else { return [] }
+    return dataSource.objects(objType).compactMap { $0 as? T }
+  }
+  
   func delete(object: Object) throws {
     do {
       try dataSource.write { dataSource.delete(object) }

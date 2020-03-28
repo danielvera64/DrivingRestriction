@@ -43,7 +43,7 @@ final class RestrictionEditorViewController: UIViewController, BindableType {
     tableView.tableFooterView = UIView()
     tableView.rowHeight = UITableView.automaticDimension
     tableView.separatorStyle = .singleLine
-    tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+    tableView.register(RestrictionTableViewCell.self, forCellReuseIdentifier: "cell")
     view.addSubview(tableView)
     tableView.snp.makeConstraints {
       $0.edges.equalTo(view.safeAreaLayoutGuide)
