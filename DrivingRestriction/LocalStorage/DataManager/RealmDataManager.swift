@@ -115,11 +115,10 @@ class RealmDataManager: DataManagerProtocol {
 
   func delete(objects: [Object]) throws {
     do {
-      try dataSource.write {  }
+      try dataSource.write { dataSource.delete(objects) }
     } catch {
       throw error
     }
-    dataSource.delete(objects)
   }
 
   func clearTable(type: Object.Type) throws {

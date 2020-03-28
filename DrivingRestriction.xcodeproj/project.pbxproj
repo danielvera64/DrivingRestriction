@@ -49,6 +49,7 @@
 		116D2D92242FF900006280E4 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116D2D91242FF900006280E4 /* BaseViewController.swift */; };
 		116D2D94242FFA21006280E4 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116D2D93242FFA21006280E4 /* HomeViewModel.swift */; };
 		116D2D96242FFF98006280E4 /* Coordinator+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116D2D95242FFF98006280E4 /* Coordinator+Extension.swift */; };
+		11D22EAD24300FA2006B1294 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D22EAC24300FA2006B1294 /* HomeViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +109,7 @@
 		116D2D91242FF900006280E4 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		116D2D93242FFA21006280E4 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		116D2D95242FFF98006280E4 /* Coordinator+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Coordinator+Extension.swift"; sourceTree = "<group>"; };
+		11D22EAC24300FA2006B1294 /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,6 +238,7 @@
 				113B32DE242DB8D300E573B1 /* DataManager */,
 				11418065242C4B2B00A39EC3 /* Info.plist */,
 				113B32DB242DB82B00E573B1 /* Resources */,
+				11D22EAB24300F82006B1294 /* ViewModel */,
 			);
 			path = DrivingRestrictionTests;
 			sourceTree = "<group>";
@@ -387,6 +390,14 @@
 				116D2D8B242FD1C7006280E4 /* Enums.swift */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		11D22EAB24300F82006B1294 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				11D22EAC24300FA2006B1294 /* HomeViewModelTests.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -579,6 +590,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				113B32D7242DB4E100E573B1 /* RealmDataManagerTests.swift in Sources */,
+				11D22EAD24300FA2006B1294 /* HomeViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

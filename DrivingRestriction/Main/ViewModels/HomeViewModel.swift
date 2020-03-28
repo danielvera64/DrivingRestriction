@@ -20,7 +20,7 @@ class HomeViewModel {
   let plateNumberSubject = BehaviorSubject<String?>(value: nil)
   let dateSelectedSubject = BehaviorSubject<Date?>(value: nil)
   
-  private let dataManager = RealmDataManager()
+  var dataManager = RealmDataManager()
   private let calendar = Calendar.current
   
   lazy var checkAction = Action<(String?, Date?),Void>() { [unowned self] plate, date in
@@ -41,13 +41,21 @@ class HomeViewModel {
   }
   
   private func checkRestriction(lastDigit: Int, date: Date) -> Observable<Void> {
-    let weekday = calendar.component(.weekday, from: date) - 1
-    let restrictions = dataManager.getArray(type: RestrictionSchedule.self, query: "weekday = \(weekday)")
-    if restrictions.isEmpty {
+    if checkRestriction(lastDigit: lastDigit, date: date) {
       return self.router.rx.trigger(.alert(title: "", message: "you_can_drive".localized,
                                            onAccept: {}, onCancel: nil))
     }
-    let current = restrictions.filter({ rest in
+    return self.router.rx.trigger(.alert(title: "", message: "you_can_not_drive".localized,
+                                         onAccept: {}, onCancel: nil))
+  }
+  
+  func checkRestriction(lastDigit: Int, date: Date) -> Bool {
+    let weekday = calendar.component(.weekday, from: date) - 1
+    let restrictions = dataManager.getArray(type: RestrictionSchedule.self, query: "weekday = \(weekday)")
+    if restrictions.isEmpty {
+      return true
+    }
+    let canNotUse = restrictions.filter({ rest in
       let startComp = rest.startTime.compareTimeOnly(to: date)
       let endComp = rest.endTime.compareTimeOnly(to: date)
       return rest.lastDigit == "\(lastDigit)" &&
@@ -55,12 +63,16 @@ class HomeViewModel {
         (startComp == .orderedAscending || startComp == .orderedSame) &&
         (endComp == .orderedDescending || endComp == .orderedSame)
     })
-    if current.isEmpty {
-      return self.router.rx.trigger(.alert(title: "", message: "you_can_drive".localized,
-                                           onAccept: {}, onCancel: nil))
-    }
-    return self.router.rx.trigger(.alert(title: "", message: "you_can_not_drive".localized,
-                                         onAccept: {}, onCancel: nil))
+    if !canNotUse.isEmpty { return false }
+    
+    let canUse = restrictions.filter({ rest in
+      let startComp = rest.startTime.compareTimeOnly(to: date)
+      let endComp = rest.endTime.compareTimeOnly(to: date)
+      return rest.lastDigit == "\(lastDigit)" && rest.canUseVehicle == true &&
+        ((startComp == .orderedDescending && endComp == .orderedDescending) || (startComp == .orderedAscending && endComp == .orderedAscending))
+    })
+    if canUse.isEmpty { return true }
+    return false
   }
   
 }
